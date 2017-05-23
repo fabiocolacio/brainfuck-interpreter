@@ -17,7 +17,7 @@ There is a debugging mode which was added for the purposes of writing
 this interpreter. Debug mode can optionally be enabled with the following flag:
 
 ```
-cmake -DDEBUG=ON
+$ cmake -DDEBUG=ON
 ```
 
 ## Install Instructions
