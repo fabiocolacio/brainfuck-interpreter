@@ -10,7 +10,7 @@ from cell to cell one at a time. The pointer can also increment or decrement the
 one at a time. The language consists of only 8 commands as follows:
 
 Command | Action
---------|---
+-------:|---
 ``>``   | move to next cell
 ``<``   | move to previous cell
 ``+``   | increment the value of the current cell by 1
