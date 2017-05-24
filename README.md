@@ -33,7 +33,17 @@ If you would like to try to master the language, feel free to build my interpret
 your system (instructions below)
 or try out this [nifty brainfuck visualizer.](http://fatiherikli.github.io/brainfuck-visualizer/)
 
-## Build Instructions:
+## Language Extensions
+
+The following are extra brainfuck commands added in my own language extension
+to brainfuck. These commands are not part of the core brainfuck language, and
+will not work in compilers or interpreters other than mine.
+
+Command | Action
+-------:|---
+``?``   | output a debug message
+
+## Build Instructions
 
 ```
 $ git clone https://github.com/fabiocolacio/brainfuck-interpreter
@@ -44,14 +54,7 @@ $ cmake ..
 $ make
 ```
 
-There is a debugging mode which was added for the purposes of writing
-this interpreter. Debug mode can optionally be enabled with the following flag:
-
-```
-$ cmake -DDEBUG=ON
-```
-
-## Install Instructions
+## Installation Instructions
 
 After building, run:
 
