@@ -43,6 +43,16 @@ Command | Action
 -------:|---
 ``?``   | output a debug message
 
+**Note:**
+If you want to disable the language extensions, you can pass the ``-s`` or ``--strict``
+flags to the interpeter when you run the program.
+
+## Flags
+
+Flag                | Action
+-------------------:|---
+``-s``/``--strict`` | Disables the language extension, so only official bf commands work.
+
 ## Build Instructions
 
 ```
