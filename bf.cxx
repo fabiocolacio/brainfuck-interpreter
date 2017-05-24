@@ -33,13 +33,6 @@ int main (int argc, char** argv) {
             loop_stack.push (&tmp);
         }
         
-        #ifdef DEBUG
-        printf ("position:%u code:%d ascii:%c\n", pos, (int)cells[pos], cells[pos]);
-        if (pos > 100) {
-            return 0;
-        }
-        #endif
-        
         switch (ch) {
             case '<':
                 if (!jump_to) {
@@ -67,11 +60,7 @@ int main (int argc, char** argv) {
                 
             case '.':
                 if (!jump_to) {
-                    #ifdef DEBUG
-                    printf ("printing cells[%u] code:%d ascii:%c\n", pos, (int)cells[pos], cells[pos]);
-                    #else
                     putchar (cells[pos]);
-                    #endif
                 }
                 break;
                 
@@ -95,6 +84,10 @@ int main (int argc, char** argv) {
                 } else {
                     fsetpos (file, loop_stack.top ());
                 }
+                break;
+                
+            case '?':
+                printf ("Index:%d Decimal:%d ASCII:%c\n", pos, (int) cells[pos], cells[pos]);
                 break;
         }
         ch_last = ch;
