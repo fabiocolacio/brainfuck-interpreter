@@ -10,6 +10,16 @@ int main (int argc, char** argv) {
         return 0;
     }
     
+    char* file_arg = argv[argc - 1];
+    
+    bool strict = false;
+    
+    for (int i = 1; i < argc; ++i) {
+        if (!strcmp(argv[i], "-s") || !strcmp(argv[i], "--strict")) {
+            strict = true;
+        }
+    }
+    
     stack<fpos_t*> loop_stack;
 
     const size_t CELLS_LEN = 30000;
@@ -17,10 +27,9 @@ int main (int argc, char** argv) {
     size_t jump_to = 0;
     size_t pos = 0;
     
-    
     int ch, ch_last;
     fpos_t tmp;
-    FILE* file = fopen (argv[1], "r");
+    FILE* file = fopen (file_arg, "r");
     if (file == NULL) {
         printf ("Unable to open the file: %s\n", argv[1]);
         return -1;
@@ -87,7 +96,9 @@ int main (int argc, char** argv) {
                 break;
                 
             case '?':
-                printf ("Index:%d Decimal:%d ASCII:%c\n", pos, (int) cells[pos], cells[pos]);
+                if (!strict) {
+                    printf ("Index:%d Decimal:%d ASCII:%c\n", pos, (int) cells[pos], cells[pos]);
+                }
                 break;
         }
         ch_last = ch;
