@@ -41,6 +41,7 @@ will not work in compilers or interpreters other than mine.
 
 Command | Action
 -------:|---
+``!``   | set the value of the currnent cell to 0
 ``?``   | output a debug message
 
 **Note:**
