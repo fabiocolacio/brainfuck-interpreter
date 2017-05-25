@@ -94,12 +94,21 @@ int main (int argc, char** argv) {
                     fsetpos (file, loop_stack.top ());
                 }
                 break;
-                
-            case '?':
-                if (!strict) {
+         }
+         
+         //--- the following commands are part of the language extension ---//
+         if (!strict) {
+             switch (ch) {
+                case '!':
+                    if (!jump_to) {
+                        cells[pos] = 0;
+                    }
+                    break;
+                    
+                case '?':
                     printf ("Index:%d Decimal:%d ASCII:%c\n", pos, (int) cells[pos], cells[pos]);
-                }
-                break;
+                    break;
+            }
         }
         ch_last = ch;
     } while (!feof (file));
