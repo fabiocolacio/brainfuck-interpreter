@@ -41,7 +41,8 @@ will not work in compilers or interpreters other than mine.
 
 Command | Action
 -------:|---
-``!``   | set the value of the currnent cell to 0
+``!``   | set the value of the current cell to 0
+``&``   | move the pointer to the index in the tape defined by the value at the current cell 
 ``?``   | output a debug message
 
 **Note:**

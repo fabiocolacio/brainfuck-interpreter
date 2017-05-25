@@ -105,6 +105,12 @@ int main (int argc, char** argv) {
                     }
                     break;
                     
+                case '&':
+                    if (!jump_to) {
+                        pos = ((int)cells[pos]) % CELLS_LEN;
+                    }
+                    break;
+                    
                 case '?':
                     printf ("Index:%d Decimal:%d ASCII:%c\n", pos, (int) cells[pos], cells[pos]);
                     break;
