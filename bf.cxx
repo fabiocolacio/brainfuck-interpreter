@@ -20,7 +20,7 @@ int main (int argc, char** argv) {
         }
     }
     
-    stack<fpos_t*> loop_stack;
+    stack<fpos_t> loop_stack;
 
     const size_t CELLS_LEN = 30000;
     char cells[CELLS_LEN] = {0};
@@ -39,7 +39,7 @@ int main (int argc, char** argv) {
         ch = fgetc (file);
         if (!jump_to && ch == '[') {
             fgetpos (file, &tmp);
-            loop_stack.push (&tmp);
+            loop_stack.push (tmp);
         }
         
         switch (ch) {
@@ -91,7 +91,7 @@ int main (int argc, char** argv) {
                 } else if (!cells[pos]) {
                     loop_stack.pop ();
                 } else {
-                    fsetpos (file, loop_stack.top ());
+                    fsetpos (file, &loop_stack.top ());
                 }
                 break;
          }
